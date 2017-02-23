@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-class Input extends React.Component {
+class MovieList extends React.Component {
 
   render() {
 
@@ -21,5 +21,5 @@ const propTypes = {
   handleChange: React.PropTypes.func.isRequired
 };
 
-Input.propTypes = propTypes;
-export default Input;
+MovieList.propTypes = propTypes;
+export default MovieList;
