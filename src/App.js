@@ -4,7 +4,8 @@ import axios from 'axios';
 import Header from './components/Header';
 import Home from './components/Home';
 import MovieList from './components/MovieList';
-import Person from './components/Person';
+import MovieListTitle from './components/MovieListTitle';
+import WatchList from './components/WatchList';
 import NotFound from './components/NotFound';
 import Contact from './components/Contact';
 import './App.css';
@@ -40,7 +41,6 @@ class App extends Component {
         console.log(response);
 
         const data = response.data;
-
         let movies = [];
         if (data) {
           movies = Object.keys(data).map((i) => {
@@ -52,9 +52,7 @@ class App extends Component {
             };
           });
         }
-        this.setState({
-          movies
-        })
+        this.setState({ movies })
       })
       .catch((error) => {
         console.log(error);
@@ -88,15 +86,15 @@ class App extends Component {
     const url = `https://mymovielist-af285.firebaseio.com/movies/${id}.json`;
     axios.patch(url, {
       title: newTitle
-  })
+    })
     .then((response) => {
       this.getRequest();
       console.log(response);
-  })
+    })
     .catch((error) => {
       console.log(error);
-  });
-}
+    });
+  }
     deleteRequest(id) {
 
     const url = `https://mymovielist-af285.firebaseio.com/movies/${id}.json`;
@@ -144,27 +142,20 @@ class App extends Component {
             <Match exactly pattern="/" component={Home} />
             <Match
               exactly pattern="/movie"
-              component={() => <MovieList
-              movie={this.state.movie}
+              component={() =>
+            <MovieListTitle
               inputValue={this.state.value}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSubmit}
               movies={this.state.movies}
               deleteRequest={this.deleteRequest}
               updateMovie={this.updateMovie}
-              patchMovie={this.patchRequest} />}
-            />
-            <Match
-              exactly
-              pattern="/movie/:id"
-              component={({ params }) =>
-                <Person person={this.state.movie[params.id - 1]} />
-              }
+              patchMovie={this.patchRequest}
+            />}
             />
             <Match exactly pattern="/Contact" component={Contact} />
             <Match
               exactly pattern="/Contact"
-              component={() => <Contact contact={this.state.movie} />}
+              component={() =>
+            <Contact contact={this.state.movie} />}
             />
             <Miss component={NotFound} />
           </div>
