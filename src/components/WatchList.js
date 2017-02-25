@@ -1,12 +1,12 @@
 import React from 'react';
-import MovieListTitle from './MovieListTitle';
+import CreateMovieList from './CreateMovieList';
 
 class WatchList extends React.Component {
   render() {
     let moviefeed = this.props.movies.map((movie, i) => {
       console.log(movie)
       return (
-        <MovieListTitle
+        <CreateMovieList
         movie={movie.title}
         movieId={movie.id}
         key={movie.id}

@@ -4,7 +4,7 @@ import axios from 'axios';
 import Header from './components/Header';
 import Home from './components/Home';
 import MovieList from './components/MovieList';
-import MovieListTitle from './components/MovieListTitle';
+import CreateMovieList from './components/CreateMovieList';
 import WatchList from './components/WatchList';
 import NotFound from './components/NotFound';
 import Contact from './components/Contact';
@@ -143,7 +143,7 @@ class App extends Component {
             <Match
               exactly pattern="/movie"
               component={() =>
-            <MovieListTitle
+            <CreateMovieList
               inputValue={this.state.value}
               movies={this.state.movies}
               deleteRequest={this.deleteRequest}
@@ -155,7 +155,7 @@ class App extends Component {
             <Match
               exactly pattern="/Contact"
               component={() =>
-            <Contact contact={this.state.movie} />}
+            <Contact contact={this.state.value} />}
             />
             <Miss component={NotFound} />
           </div>

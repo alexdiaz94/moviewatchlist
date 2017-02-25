@@ -23,7 +23,7 @@ class Contact extends React.Component {
     return (
         <div>
           Email:
-        <input type="text" value={this.state.value} onChange={this.handleChange} />
+        <input type="text" value={this.state.value} onChange={this.handleChange}/>
         <input type="submit" value="Submit" onSubmit={this.handleSubmit} />
       </div>
     );
