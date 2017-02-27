@@ -1,7 +1,7 @@
 import React from 'react';
 import CreateMovieList from './CreateMovieList';
 
-class WatchList extends React.Component {
+class MyMovieList extends React.Component {
   render() {
     let moviefeed = this.props.movies.map((movie, i) => {
       console.log(movie)
@@ -28,6 +28,6 @@ const propTypes = {
   movies: React.PropTypes.array.isRequired
 };
 
-WatchList.propTypes = propTypes;
+MyMovieList.propTypes = propTypes;
 
-export default WatchList;
+export default MyMovieList;

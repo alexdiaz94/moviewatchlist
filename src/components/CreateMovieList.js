@@ -94,20 +94,7 @@ class CreateMovieList extends React.Component {
   }
 
   renderMyListSection() {
-    var sectionStyle = {
-      float: 'left'
-    }
-    var listItemStyle = {
-      textAlign: 'left',
-      border: 'solid 1px #cfcfcf',
-      padding: '2px 4px'
-
-    }
-    var movieTitleStyle = {
-      float: 'left',
-      width: '200px',
-
-    } // display movie titles with remove option
+     // display movie titles with remove option
     return (
       <div className='sectionStyle'>
       My New List

@@ -5,9 +5,8 @@ import Header from './components/Header';
 import Home from './components/Home';
 import MovieList from './components/MovieList';
 import CreateMovieList from './components/CreateMovieList';
-import WatchList from './components/WatchList';
+import MyMovieList from './components/MyMovieList';
 import NotFound from './components/NotFound';
-import Contact from './components/Contact';
 import './App.css';
 
 class App extends Component {
@@ -141,18 +140,18 @@ class App extends Component {
 
             <Match exactly pattern="/" component={Home} />
             <Match
-              exactly pattern="/movie"
+              exactly pattern="/CreateMovieList"
               component={() =>
             <CreateMovieList
               inputValue={this.state.value}
               movies={this.state.movies}
             />}
             />
-            <Match exactly pattern="/Contact" component={Contact} />
+            <Match exactly pattern="/MyMovieList" component={MyMovieList} />
             <Match
-              exactly pattern="/Contact"
+              exactly pattern="/MyMovieList"
               component={() =>
-            <Contact contact={this.state.value} />}
+            <MyMovieList MyMovieList={this.state.value} />}
             />
             <Miss component={NotFound} />
           </div>
