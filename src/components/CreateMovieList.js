@@ -44,6 +44,9 @@ class CreateMovieList extends React.Component {
     list.splice(list.indexOf(movie), 1);
     this.setState({myList: list});
   }
+  saveMyList(movie) {
+
+  }
 
   renderSearchResults() {
  //if movie does not have poster then display default image holder
@@ -97,16 +100,19 @@ class CreateMovieList extends React.Component {
      // display movie titles with remove option
     return (
       <div className='sectionStyle'>
-      My New List
+        <label>My New List, Hit Save before going to My Movie List</label>
         <ul>
-          {this.state.myList.map((movie) => {
-            return (
+          <input type='text' placeholder='Save My List'/>
+            <p><button onClick={() => this.saveMyList()}>Save to My List</button></p>
+             {this.state.myList.map((movie) => {
+              return (
               <li key={movie.id} className='listItemStyle'>
-                <div title={movie.title} className='movieTitleStyle'>{movie.title}</div>
-                <button onClick={() => this.removeFromList(movie)}>Remove</button>
-                <div><button onClick={() => this.saveMyList(movie)}>Save My List</button></div>
+               <div title={movie.title} className='movieTitleStyle'>{movie.title}</div>
+               <button onClick={() => this.removeFromList(movie)}>Remove</button>
+
               </li>
               //SAVEMOVIELIST BUTTON
+
             )
           })}
         </ul>
