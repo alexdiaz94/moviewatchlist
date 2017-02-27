@@ -64,7 +64,7 @@ class CreateMovieList extends React.Component {
             }
             //list movies from search and displays images
             return (
-              <li key={movie.id} className='listItemStyle'>
+              <li key={movie.id} className='list-group-item'>
                 <div>
                   <div>{movie.title}</div>
                   <div><img src={posterPath} className='posterStyle'/></div>
@@ -90,7 +90,7 @@ class CreateMovieList extends React.Component {
       title,
     } = this.props;
       return (
-          <form className='navbar-form navbar-left' role='search'>
+          <form className='navbar-form navbar-left'>
             <input type="text" className='form-control' placeholder="Search Movies"
               defaultValue={this.props.movie}
               id={this.props.movieId}
@@ -106,12 +106,12 @@ class CreateMovieList extends React.Component {
     return (
       <div className='sectionStyle'>
         <label>My New List, Hit Save before going to My Movie List</label>
-        <ul>
-          <input type='text' placeholder='Save My List'/>
+        <ul class='list-group-item'>
+          <input type='text' className='inputBoxStyle' placeholder='Save My List'/>
             <p><button className='btn btn-primary' onClick={() => this.saveMyList()}>Save to My List</button></p>
              {this.state.myList.map((movie) => {
               return (
-              <li key={movie.id} className='listItemStyle'>
+              <li key={movie.id} className='list-group-item'>
                <div title={movie.title} className='movieTitleStyle'>{movie.title}</div>
                <button onClick={() => this.removeFromList(movie)}>
                <span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>

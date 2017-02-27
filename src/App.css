@@ -100,13 +100,6 @@
       display: inline-table;
 
 }
-.listItemStyle {
-      text-align: left;
-      border: solid 1px #cfcfcf;
-      padding: 1px 4px;
-      display: flex;
-}
-
 .movieTitleStyle {
       float: left;
       width: 100px;
@@ -116,6 +109,12 @@
 .leftSectionStyle {
       width: 250px;
       float: left;
+}
+input.inputBoxStyle {
+  font-size: 20px;
+}
+label {
+  font-size: 12px;
 }
 
 
