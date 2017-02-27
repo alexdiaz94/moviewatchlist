@@ -44,9 +44,11 @@ class CreateMovieList extends React.Component {
     list.splice(list.indexOf(movie), 1);
     this.setState({myList: list});
   }
-  saveMyList(movie) {
-
-  }
+  // saveMyList(movie) {
+  //   let myMovieList = this.state.myMovieList;
+  //   myMovieList.map(movie);
+  //   this.setState({ myMovieList: movielist});
+  // }
 
   renderSearchResults() {
  //if movie does not have poster then display default image holder
@@ -66,7 +68,10 @@ class CreateMovieList extends React.Component {
                 <div>
                   <div>{movie.title}</div>
                   <div><img src={posterPath} className='posterStyle'/></div>
-                  <div><button onClick={() => this.addMovieToList(movie)}>Add to list</button></div>
+                  <div><button onClick={() => this.addMovieToList(movie)}>
+                  <span className="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  </button>
+                  </div>
                 </div>
               </li>
             )
@@ -85,13 +90,13 @@ class CreateMovieList extends React.Component {
       title,
     } = this.props;
       return (
-          <form className='formStyle'>
-            <input type="text" placeholder="Search Movies"
+          <form className='navbar-form navbar-left' role='search'>
+            <input type="text" className='form-control' placeholder="Search Movies"
               defaultValue={this.props.movie}
               id={this.props.movieId}
               onChange={this.onSearchTitleChange}
               className='inputBoxStyle'/>
-            <button onClick={this.searchMovie}>Search</button>
+            <button className='btn btn-primary' onClick={this.searchMovie}>Search</button>
           </form>
       );
   }
@@ -103,12 +108,13 @@ class CreateMovieList extends React.Component {
         <label>My New List, Hit Save before going to My Movie List</label>
         <ul>
           <input type='text' placeholder='Save My List'/>
-            <p><button onClick={() => this.saveMyList()}>Save to My List</button></p>
+            <p><button className='btn btn-primary' onClick={() => this.saveMyList()}>Save to My List</button></p>
              {this.state.myList.map((movie) => {
               return (
               <li key={movie.id} className='listItemStyle'>
                <div title={movie.title} className='movieTitleStyle'>{movie.title}</div>
-               <button onClick={() => this.removeFromList(movie)}>Remove</button>
+               <button onClick={() => this.removeFromList(movie)}>
+               <span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 
               </li>
               //SAVEMOVIELIST BUTTON
