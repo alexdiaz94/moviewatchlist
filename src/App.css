@@ -81,3 +81,60 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.listStyle {
+      clear: both;
+}
+.listItemStyle {
+      width: 186px;
+      border: 1px solid #ccc;
+
+}
+.posterStyle {
+      width: 185px;
+}
+.inputBoxStyle {
+      width: 150px;
+      display: inline-block;
+}
+.formStyle {
+      float: left;
+}
+.sectionStyle {
+      float: right;
+      padding: 5px 5px;
+      display: inline-table;
+      text-overflow: ellipsis;
+      margin: 5px;
+
+}
+.listItemStyle {
+      text-align: left;
+      border: solid 1px #cfcfcf;
+      padding: 1px 4px;
+      display: flex;
+
+}
+.movieTitleStyle {
+      float: left;
+      width: 100px;
+      overflow: hidden;
+
+}
+.leftSectionStyle {
+      width: 250px;
+      float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

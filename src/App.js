@@ -25,7 +25,7 @@ class App extends Component {
     this.updateMovie = this.updateMovie.bind(this);
     this.getRequest = this.getRequest.bind(this);
   }
-//Need TO FIX
+
   componentDidMount() {
     this.getRequest();
   }
@@ -146,9 +146,6 @@ class App extends Component {
             <CreateMovieList
               inputValue={this.state.value}
               movies={this.state.movies}
-              deleteRequest={this.deleteRequest}
-              updateMovie={this.updateMovie}
-              patchMovie={this.patchRequest}
             />}
             />
             <Match exactly pattern="/Contact" component={Contact} />
