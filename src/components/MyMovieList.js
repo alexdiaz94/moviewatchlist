@@ -42,7 +42,7 @@ class MyMovieList extends React.Component {
   renderList() {
     if (!this.state.myList || this.state.myList.length === 0) {
       return <div>No Lists</div>
-    }
+    }//chks to see updated list id
     else {
       return (
       <div className="mylists">
@@ -55,8 +55,9 @@ class MyMovieList extends React.Component {
                 <Link
                   to={link}
                   activeOnlyWhenExact
-                  activeClassName="active"
-                >{list.listName}</Link>
+                  activeClassName="active">
+                  {list.listName}
+                  </Link>
                 <button onClick={() => this.removeFromList(list.listId)}>
                <span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
               </li>

@@ -15,10 +15,10 @@ class Home extends React.Component {
 
             </div>
             <div className="second">
-              456
+
             </div>
             <div style={{height:400,width:"100%",backgroundColor:"lightpink"}}>
-              789
+
             </div>
           </React_Boostrap_Carousel>
         </div>
