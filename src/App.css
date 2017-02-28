@@ -81,22 +81,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-div.carousel-fade{
+/*div.carousel-fade{
   height: 400;
   width: 100%;
   background-image: url("http://www.joblo.com/posters/images/full/rogue_one_a_star_wars_story_ver5_xxlg.jpg");
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
-}
-div.carousel-fade.second{
-  height: 400;
-  width: 100%;
-  background-image: url("http://www.joblo.com/posters/images/full/john-wick-fposter-gallery.jpg");
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+}*/
+
 
 
 .listStyle {

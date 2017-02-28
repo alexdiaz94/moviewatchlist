@@ -1,5 +1,5 @@
 {
-  "name": "starwars-w-routing",
+  "name": "horoscope-w-routing",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {

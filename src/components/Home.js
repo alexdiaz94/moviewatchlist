@@ -12,12 +12,13 @@ class Home extends React.Component {
         <div style={{height:300,margin:20}}>
           <React_Boostrap_Carousel animation={true} className="carousel-fade">
             <div className="first">
-
+              <img src="http://www.joblo.com/posters/images/full/rogue_one_a_star_wars_story_ver5_xxlg.jpg" height="400" width="60%"/>
             </div>
             <div className="second">
-
+              <img src="http://www.joblo.com/posters/images/full/john-wick-fposter-gallery.jpg" height="400" width="60%"/>
             </div>
-            <div style={{height:400,width:"100%",backgroundColor:"lightpink"}}>
+            <div className="third">
+            <img src="http://www.joblo.com/posters/images/full/the-last-jedi.jpg" height="400" width="60%"/>
 
             </div>
           </React_Boostrap_Carousel>
