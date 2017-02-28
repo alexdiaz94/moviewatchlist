@@ -3,10 +3,28 @@ import { Link } from 'react-router';
 import axios from 'axios';
 
 class CreateMovieList extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+    let listId = window.location.href.substring(window.location.href.lastIndexOf('/')+1);
     this.state={
-      myList: []
+      myList: {
+        movies: []
+      }
+    }
+
+    if (listId !== '0') {
+      const url = 'https://mymovielist-af285.firebaseio.com/movielists.json';
+        axios.get(url)
+          .then((response) => {
+            console.log(response);
+            var list = response.data[listId];
+            this.setState({
+              myList: list
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          })
     }
 
     this.onSearchTitleChange = this.onSearchTitleChange.bind(this);
@@ -14,6 +32,7 @@ class CreateMovieList extends React.Component {
     this.addMovieToList = this.addMovieToList.bind(this);
     this.renderMyListSection = this.renderMyListSection.bind(this);
     this.removeFromList = this.removeFromList.bind(this);
+    this.onMovieListNameChange = this.onMovieListNameChange.bind(this);
 
   }
 //search function to make api call to movie db
@@ -35,20 +54,37 @@ class CreateMovieList extends React.Component {
 //add function for movies
   addMovieToList(movie) {
     let list = this.state.myList;
-    list.push(movie);
+    list.movies.push(movie);
     this.setState({myList: list});
   }
 //delete function from mylist
   removeFromList(movie) {
     let list = this.state.myList;
-    list.splice(list.indexOf(movie), 1);
+    list.movies.splice(list.movies.indexOf(movie), 1);
     this.setState({myList: list});
   }
-  // saveMyList(movie) {
-  //   let myMovieList = this.state.myMovieList;
-  //   myMovieList.map(movie);
-  //   this.setState({ myMovieList: movielist});
-  // }
+
+  saveMyList() {
+    var list = this.state.myList;
+    if (!list.listName) {
+      list.listName = this.state.movieListName;
+    }
+
+    const url = 'https://mymovielist-af285.firebaseio.com/movielists.json';
+    axios.post(url, list)
+      .then(() => {
+        alert('list saved');
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
+  onMovieListNameChange(e) {
+    this.setState({
+      movieListName: e.target.value
+    });
+  }
 
   renderSearchResults() {
  //if movie does not have poster then display default image holder
@@ -92,7 +128,6 @@ class CreateMovieList extends React.Component {
       return (
           <form className='navbar-form navbar-left'>
             <input type="text" className='form-control' placeholder="Search Movies"
-              defaultValue={this.props.movie}
               id={this.props.movieId}
               onChange={this.onSearchTitleChange}
               className='inputBoxStyle'/>
@@ -106,10 +141,14 @@ class CreateMovieList extends React.Component {
     return (
       <div className='sectionStyle'>
         <label>My New List, Hit Save before going to My Movie List</label>
-        <ul class='list-group-item'>
-          <input type='text' className='inputBoxStyle' placeholder='Save My List'/>
+        <ul className='list-group-item'>
+          <input type='text'
+            className='inputBoxStyle'
+            placeholder='List Name'
+            value={this.state.myList.listName}
+            onChange={this.onMovieListNameChange}/>
             <p><button className='btn btn-primary' onClick={() => this.saveMyList()}>Save to My List</button></p>
-             {this.state.myList.map((movie) => {
+             {this.state.myList.movies.map((movie) => {
               return (
               <li key={movie.id} className='list-group-item'>
                <div title={movie.title} className='movieTitleStyle'>{movie.title}</div>

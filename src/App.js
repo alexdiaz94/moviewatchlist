@@ -140,14 +140,11 @@ class App extends Component {
 
             <Match exactly pattern="/" component={Home} />
             <Match
-              exactly pattern="/CreateMovieList"
+              pattern="/CreateMovieList/:listid"
               component={() =>
             <CreateMovieList
-              inputValue={this.state.value}
-              movies={this.state.movies}
             />}
             />
-            <Match exactly pattern="/MyMovieList" component={MyMovieList} />
             <Match
               exactly pattern="/MyMovieList"
               component={() =>

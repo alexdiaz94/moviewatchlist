@@ -18,7 +18,7 @@ const Header = () => (
       </li>
       <li>
         <Link
-          to="/CreateMovieList"
+          to="/CreateMovieList/0"
           activeOnlyWhenExact
           activeClassName="active"
         >
