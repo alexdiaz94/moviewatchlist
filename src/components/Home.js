@@ -11,10 +11,10 @@ class Home extends React.Component {
       return(
         <div style={{height:300,margin:20}}>
           <React_Boostrap_Carousel animation={true} className="carousel-fade">
-            <div class="first">
+            <div className="first">
 
             </div>
-            <div class="second">
+            <div className="second">
               456
             </div>
             <div style={{height:400,width:"100%",backgroundColor:"lightpink"}}>

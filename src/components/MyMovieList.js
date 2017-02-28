@@ -19,6 +19,7 @@ class MyMovieList extends React.Component {
     this.getList();
   }
 
+
   getList() {
     const url = 'https://mymovielist-af285.firebaseio.com/movielists.json';
     axios.get(url)
@@ -44,8 +45,8 @@ class MyMovieList extends React.Component {
     }
     else {
       return (
-      <div>
-        My Lists:
+      <div className="mylists">
+        <label>My Lists:</label>
         <ul>
           {this.state.myList.map((list) => {
             let link = "/CreateMovieList/" + list.listId;
@@ -56,6 +57,8 @@ class MyMovieList extends React.Component {
                   activeOnlyWhenExact
                   activeClassName="active"
                 >{list.listName}</Link>
+                <button onClick={() => this.removeFromList(list.listId)}>
+               <span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
               </li>
             );
           })}
@@ -68,6 +71,7 @@ class MyMovieList extends React.Component {
   render() {
     return (
       <div>{this.renderList()}</div>
+
     );
   }
 }

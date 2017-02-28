@@ -140,7 +140,7 @@ class CreateMovieList extends React.Component {
      // display movie titles with remove option
     return (
       <div className='sectionStyle'>
-        <label>My New List, Hit Save before going to My Movie List</label>
+        <label>Hit Save before going to My Movie List</label>
         <ul className='list-group-item'>
           <input type='text'
             className='inputBoxStyle'

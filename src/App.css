@@ -131,7 +131,10 @@ input.inputBoxStyle {
   font-size: 20px;
 }
 label {
-  font-size: 12px;
+  font-size: 16px;
+}
+.main a {
+  font-size: 20px;
 }
 
 
