@@ -21,7 +21,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 
 ## Wireframe
 
-[logo](https://github.com/alexdiaz94/moviewatchlist/blob/master/public/MyMovieList.png).
+![logo](https://github.com/alexdiaz94/moviewatchlist/blob/master/public/MyMovieList.png).
 
 ### Prerequisites
 
